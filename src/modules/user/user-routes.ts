@@ -7,12 +7,12 @@ import { authController } from "../auth/auth-controller";
 
 const router = express.Router();
 router.post(
-  "/signup",
+  "/auth/signup",
   requestValidation(userValidation.createUserValidationSchema),
   userController.createUser
 );
 router.post(
-  "/login",
+  "/auth/login",
   requestValidation(authValidation.createAuthValidationSchema),
   authController.createAuth
 );

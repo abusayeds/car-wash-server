@@ -8,6 +8,7 @@ export type TuserName = {
   lastName: string;
 };
 export interface TUser {
+    _id?: string
   name: TuserName;
   email: string;
   password: string;

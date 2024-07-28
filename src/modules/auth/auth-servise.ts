@@ -5,6 +5,7 @@ import { TLoginUser } from "./auth-interface";
 import jwt from "jsonwebtoken";
 import config from "../../app/config";
 
+ 
 const createAuthDB = async (payload: TLoginUser) => {
   const user = await userModel.isUserExistsByCustomEmail(payload?.email);
   //   checking the exixts user
@@ -18,12 +19,13 @@ const createAuthDB = async (payload: TLoginUser) => {
   }
 
   const jwtPayload = {
+    id: user._id,
     userEmail: user.email,
     role: user.role,
   };
   const accessToken = jwt.sign(
     jwtPayload, config.jwt_access_secert as string,
-    { expiresIn: '10d' }
+    { expiresIn: '30d' }
   );
   return {
      accessToken,
