@@ -5,7 +5,7 @@ import { TBooking } from "./booking-interface";
 import { bookingModel } from "./booking-model";
 
 const createBookingDB = async (payload: TBooking, customer: any) => {
-  const slot = await slotModel.findById(payload.slot);
+  const slot = await slotModel.findById(payload.slotId);
   const booking = await bookingModel.create({
     ...payload,
     customer: customer,
@@ -20,8 +20,8 @@ const createBookingDB = async (payload: TBooking, customer: any) => {
       path: "customer",
       select: "name email phone address", 
     })
-    .populate("service")
-    .populate("slot");
+    .populate("serviceId")
+    .populate("slotId");
 };
 const getAllBookingDB = async () => {
     const result = await bookingModel.find()
