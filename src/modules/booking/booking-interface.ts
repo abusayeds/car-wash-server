@@ -10,7 +10,7 @@ import { Types } from "mongoose";
 }
  export interface TSlot {
   service : string,
-  date : Date
+  date : string
   startTime: string
   endTime: string
   isBooked: string

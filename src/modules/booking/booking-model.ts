@@ -2,11 +2,12 @@ import { Schema, model } from "mongoose";
 import { TBooking, TService, TSlot } from "./booking-interface";
 
 
+
 const serviseSchema = new Schema <TService>({
     name : {
         type : String,
         required : true,
-        unique : true
+      
     },
     description : {
         type : String,
@@ -32,7 +33,7 @@ const slotSehema = new Schema<TSlot>({
         required : true
     },
     date : {
-        type : Date,
+        type : String,
         required : true,
       
     },
