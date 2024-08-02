@@ -3,8 +3,8 @@ import { z } from "zod";
 const bookingVAlidationSchema = z.object({
   body: z.object({
     customer: z.string().optional(),
-    service: z.string(),
-    slot: z.string(),
+    serviceId: z.string(),
+    slotId: z.string(),
     vehicleType: z.string().min(1, "Vehicle type is required"),
     vehicleBrand: z.string().min(1, "Vehicle brand is required"),
     vehicleModel: z.string().min(1, "Vehicle model is required"),

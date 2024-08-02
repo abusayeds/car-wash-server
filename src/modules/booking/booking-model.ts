@@ -8,12 +8,12 @@ const bookingSchema = new Schema<TBooking>(
       ref: "User",
       required: true,
     },
-    service: {
+    serviceId: {
       type: Schema.Types.ObjectId,
       ref: "Servise",
       required: true,
     },
-    slot: {
+    slotId: {
       type: Schema.Types.ObjectId,
       ref: "Slot",
       required: true,
