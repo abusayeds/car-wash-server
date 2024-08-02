@@ -34,7 +34,7 @@ const slotSehema = new Schema<TSlot>({
     date : {
         type : Date,
         required : true,
-        unique : true
+      
     },
     startTime : {
         type : String,
@@ -43,7 +43,7 @@ const slotSehema = new Schema<TSlot>({
     endTime : {
         type : String,
         required : true,
-        unique: true
+     
     },
     isBooked : {
         type : String,
