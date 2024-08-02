@@ -6,12 +6,10 @@ const serviseSchema = new Schema<TServise>(
     name: {
       type: String,
       required: true,
-      unique: true,
     },
     description: {
       type: String,
       required: true,
-      unique: true,
     },
     price: {
       type: Number,
@@ -31,4 +29,4 @@ const serviseSchema = new Schema<TServise>(
     timestamps: true,
   }
 );
- export const serviseModel = model<TServise>('Servise', serviseSchema)
+export const serviseModel = model<TServise>("Servise", serviseSchema);
