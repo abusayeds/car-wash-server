@@ -4,7 +4,7 @@ import catchAsync from "../../app/utils/catechAsync-funtion";
 import { userServise } from "./user-servise";
 
 const createUser = catchAsync(async (req, res) => {
-    // console.log('test', req.user);
+   
     const result = await userServise.createUserDB(req.body)
     sendResponse(res, {
         statusCode: httpStatus.OK,

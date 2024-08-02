@@ -2,14 +2,10 @@
 import { Model } from "mongoose";
 import { USER_ROLE } from "./user.constant";
 
-export type TuserName = {
-  firstName: string;
-  middleName?: string;
-  lastName: string;
-};
+
 export interface TUser {
     _id?: string
-  name: TuserName;
+  name: string;
   email: string;
   password: string;
   phone: string;

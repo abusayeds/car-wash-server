@@ -1,19 +1,16 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 import { model, Schema } from "mongoose";
 import bcrypt from "bcrypt";
-import { IUserModel, TUser, TuserName, UserModel } from "./user-interface";
+import { IUserModel, TUser } from "./user-interface";
 import config from "../../app/config";
-const userNameSchema = new Schema<TuserName>({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  middleName: { type: String },
-  lastName: { type: String, required: true },
-});
+
 const userSchema = new Schema<TUser, IUserModel>(
   {
-    name: userNameSchema,
+    name: {
+        type : String,
+        required : true,
+        unique: true
+    },
     email: {
       type: String,
       required: true,
@@ -22,7 +19,7 @@ const userSchema = new Schema<TUser, IUserModel>(
     password: {
       type: String,
       required: true,
-      select: 0
+      select:0
     },
     phone: {
       type: String,
