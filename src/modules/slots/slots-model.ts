@@ -7,7 +7,7 @@ const slotSchema = new Schema<TSlots>(
     date: { type: String, required: true },
     startTime: { type: String, required: true },
     endTime: { type: String, required: true },
-    isBooked: { type: String, default: "available", required : true},
+    isBooked: { type: String, default: "available", required: true },
   },
   { timestamps: true }
 );

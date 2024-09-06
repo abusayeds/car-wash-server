@@ -15,7 +15,7 @@ const auth = (...requiredRoles: TuserRole[]) => {
     }
     jwt.verify(
       token,
-      config.jwt_access_secert as string,
+      config.jwt_access_secret as string,
       function (err, decoded) {
         if (err) {
           throw new appError(

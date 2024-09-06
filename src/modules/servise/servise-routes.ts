@@ -14,7 +14,7 @@ router.post(
 );
 router.put(
   "/services/:id",
-  auth(USER_ROLE.admin),
+  auth(USER_ROLE.admin ),
   requestValidation(servisreValidation.updateServiseValidationSchema),
   serviseController.updateService
 );

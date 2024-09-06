@@ -1,27 +1,16 @@
 import { Types } from "mongoose";
 
-
- export interface TService {
-  name : string,
-  description : string
-  price : number
-  duration : number
-  isDeleted : boolean
-}
- export interface TSlot {
-  service : string,
-  date : string
-  startTime: string
-  endTime: string
-  isBooked: string
-}
-
- export type TBooking = {
-  customer : Types.ObjectId;
-  serviceId: Types.ObjectId;
-  slotId: Types.ObjectId;
-  service : TService
-  slot : TSlot
+export type TBooking = {
+  name: string;
+  user: Types.ObjectId;
+  phone: number;
+  price: number;
+  image : string;
+  email: string;
+  date: string;
+  time: string;
+  address: string;
+  city: string;
   vehicleType:
     | "car"
     | "truck"
@@ -30,10 +19,7 @@ import { Types } from "mongoose";
     | "motorcycle"
     | "electricVehicle"
     | "hybridVehicle"
-    | " bicycle"
+    | "bicycle"
     | "tractor";
   vehicleBrand: string;
-  vehicleModel: string;
-  manufacturingYear: number;
-  registrationPlate: string;
 };

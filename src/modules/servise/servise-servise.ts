@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import queryBuilder from "../../app/builder/queryBuilder";
+import { serviseSearchbleField } from "./servise-constanr";
 import { TServise } from "./servise-interface";
 import { serviseModel } from "./servise-model";
 
@@ -12,8 +14,14 @@ const getSingleServiceDB = async (id: any) => {
   return result;
 };
 
-const getAllServiceDB = async () => {
-  const result = await serviseModel.find();
+const getAllServiceDB = async (query: Record<string, unknown>) => {
+  const serviseQuery = new queryBuilder(serviseModel.find(), query)
+    .search(serviseSearchbleField)
+    .fillter()
+    .sort()
+    .pagenate()
+    .fields();
+  const result = await serviseQuery.modelQuery;
   return result;
 };
 const updateSErviseDB = async (id: string, payload: TServise) => {
@@ -23,7 +31,7 @@ const updateSErviseDB = async (id: string, payload: TServise) => {
   return result;
 };
 const deleteServiseDB = async (id: string) => {
-  const result = await serviseModel.findByIdAndUpdate({ _id: id },  { isDeleted: true }, {new: true,});
+  const result = await serviseModel.findByIdAndDelete({_id: id});
   return result;
 };
 
@@ -32,5 +40,5 @@ export const Servise = {
   getSingleServiceDB,
   getAllServiceDB,
   updateSErviseDB,
-  deleteServiseDB
+  deleteServiseDB,
 };

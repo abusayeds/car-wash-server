@@ -13,5 +13,9 @@ router.post(
   requestValidation(slotValidation.createSlotValidation),
   slotsController.createSlotsController
 );
+router.put("/update-slot/:id", slotsController.updateSlot);
+router.get("/services-slots/:id", slotsController.getServiseIdSlots);
+router.get("/single-slot/:id", slotsController.getSingleSlot);
+router.delete("/delete-slot/:id", slotsController.deleteSlot);
 router.get("/slots/availability", slotsController.getAvailableSlot);
 export const slotsRouts = router;

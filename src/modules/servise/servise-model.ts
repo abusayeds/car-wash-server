@@ -19,6 +19,10 @@ const serviseSchema = new Schema<TServise>(
       type: Number,
       required: true,
     },
+    image : {
+        type : String,
+        required : true
+    },
     isDeleted: {
       type: Boolean,
       required: true,

@@ -5,15 +5,16 @@ import { bookingService } from "./booking-service";
 
 const createbooking = catchAsync(async (req, res) => {
   const result = await bookingService.createBookingDB(req.body, req.user.id);
-  sendResponse(res, {
+    // console.log(req.user.id);
+    sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Booking successful",
+    message: " Booking successful",
     data: result,
   });
 });
-const getAllBooking= catchAsync(async (req, res) => {
-  const result = await bookingService.getAllBookingDB()
+const getAllBooking = catchAsync(async (req, res) => {
+  const result = await bookingService.getAllBookingDB();
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -21,8 +22,10 @@ const getAllBooking= catchAsync(async (req, res) => {
     data: result,
   });
 });
-const getMyBooking= catchAsync(async (req, res) => {
-  const result = await bookingService.getMybookingDB(req.user.id)
+const getMyBooking = catchAsync(async (req, res) => {
+  const result = await bookingService.getMybookingDB(req.user.id);
+   
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -33,5 +36,5 @@ const getMyBooking= catchAsync(async (req, res) => {
 export const bookingController = {
   createbooking,
   getAllBooking,
-  getMyBooking
+  getMyBooking,
 };

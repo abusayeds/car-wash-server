@@ -2,18 +2,18 @@ import { z } from "zod";
 
 const bookingVAlidationSchema = z.object({
   body: z.object({
-    customer: z.string().optional(),
-    serviceId: z.string(),
-    slotId: z.string(),
-    vehicleType: z.string().min(1, "Vehicle type is required"),
-    vehicleBrand: z.string().min(1, "Vehicle brand is required"),
-    vehicleModel: z.string().min(1, "Vehicle model is required"),
-    manufacturingYear: z
-      .number()
-      .int()
-      .min(1886, "Invalid year")
-      .max(new Date().getFullYear(), "Invalid year"),
-    registrationPlate: z.string().min(1, "Registration plate is required"),               
+    name: z.string(),
+    // user: z.string(),
+    phone: z.number(),
+    email: z.string().email("Invalid email address"),
+    price : z.number(),
+    image : z.string(),
+    date: z.string(),
+    time: z.string(),
+    address: z.string(),
+    city: z.string(),
+    vehicleType: z.string(),
+    vehicleBrand: z.string(),
   }),
 });
 

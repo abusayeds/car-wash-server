@@ -2,10 +2,10 @@ import httpStatus from "http-status";
 import appError from "../../app/middwares/appError";
 import { userModel } from "../user/user-model";
 import { TLoginUser } from "./auth-interface";
-import jwt from "jsonwebtoken";
-import config from "../../app/config";
 
- 
+import config from "../../app/config";
+import { createToken } from "./auth-utils";
+
 const createAuthDB = async (payload: TLoginUser) => {
   const user = await userModel.isUserExistsByCustomEmail(payload?.email);
   //   checking the exixts user
@@ -20,16 +20,27 @@ const createAuthDB = async (payload: TLoginUser) => {
 
   const jwtPayload = {
     id: user._id,
+    name: user.name,
     userEmail: user.email,
     role: user.role,
+    user :user
   };
-  const accessToken = jwt.sign(
-    jwtPayload, config.jwt_access_secert as string,
-    { expiresIn: '30d' }
+  const accessToken = createToken(
+    jwtPayload,
+    config.jwt_access_secret as string,
+    config.jwt_access_expires_in as string
   );
+
+  const refreshToken = createToken(
+    jwtPayload,
+    config.jwt_refresh_secret as string,
+    config.jwt_refresh_expires_in as string
+  );
+  
   return {
-     accessToken,
-     user
+    accessToken,
+    refreshToken,
+    user,
   };
 };
 export const authServise = {
