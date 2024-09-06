@@ -18,7 +18,7 @@ router.put(
   requestValidation(servisreValidation.updateServiseValidationSchema),
   serviseController.updateService
 );
-router.get("/services/", serviseController.getAllService);
+router.get("/services", serviseController.getAllService);
 router.get("/services/:id", serviseController.getsSingleService);
 
 router.delete("/services/:id", auth(USER_ROLE.admin), serviseController.deleteService);

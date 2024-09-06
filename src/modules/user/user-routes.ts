@@ -4,8 +4,7 @@ import { userValidation } from "./user-validation";
 import { userController } from "./user-controller";
 import { authValidation } from "../auth/auth-validation";
 import { authController } from "../auth/auth-controller";
-// import auth from "../../app/middwares/auth";
-// import { USER_ROLE } from "./user.constant";
+
 
 const router = express.Router();
 router.post(
