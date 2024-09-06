@@ -26,15 +26,7 @@ const createSlotValidation = z.object({
   ),
 
 });
-const updateSlotValidation = z.object({
-    body: z.object({
-      service: z.string().optional(),
-      date: z.string().optional(),
-      startTime: TimeStringSchema.optional(),
-      endTime: TimeStringSchema.optional(),
-      isBooked: z.string().default("available").optional(),
-    })
-    })
+
 
 export const slotValidation = {
   createSlotValidation
