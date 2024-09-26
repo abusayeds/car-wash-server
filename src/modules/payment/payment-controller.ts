@@ -27,7 +27,7 @@ const confirmationController = async (req: Request, res: Response) => {
           <p style="font-size:0.875rem;color:#718096;margin-top:16px;">Your order is completely successful and thank you for the next one </p>
         </div>
         <div style="display: flex; justify-content: center; margin-top: 16px;">
-          <a href="http://localhost:5173/" style="text-decoration: none; background-color: #2d3748; color: white; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s;">
+          <a href="https://car-was-client.vercel.app/" style="text-decoration: none; background-color: #2d3748; color: white; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s;">
             Back to home 
           </a>
         </div>
@@ -75,7 +75,7 @@ const failedController = async (req: Request, res: Response) => {
 
 
         <div style="display: flex; justify-content: center; margin-top: 16px;">
-          <a href="http://localhost:5173/" style="text-decoration: none; background-color: #2d3748; color: white; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s;">
+          <a href="https://car-was-client.vercel.app/" style="text-decoration: none; background-color: #2d3748; color: white; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s;">
             Back to home 
           </a>
         </div>
