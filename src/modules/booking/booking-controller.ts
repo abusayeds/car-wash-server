@@ -5,7 +5,7 @@ import { bookingService } from "./booking-service";
 
 const createbooking = catchAsync(async (req, res) => {
   const result = await bookingService.createBookingDB(req.body, req.user.id);
-    // console.log(req.user.id);
+
     sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -24,7 +24,6 @@ const getAllBooking = catchAsync(async (req, res) => {
 });
 const getMyBooking = catchAsync(async (req, res) => {
   const result = await bookingService.getMybookingDB(req.user.id);
-   
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

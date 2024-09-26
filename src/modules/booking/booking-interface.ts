@@ -5,10 +5,13 @@ export type TBooking = {
   user: Types.ObjectId;
   phone: number;
   price: number;
-  image : string;
+  image: string;
   email: string;
+  slotId: string;
   date: string;
   time: string;
+  startTime: string;
+  endTime: string;
   address: string;
   city: string;
   vehicleType:

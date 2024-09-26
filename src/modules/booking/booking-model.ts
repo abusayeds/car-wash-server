@@ -10,7 +10,7 @@ const bookingSchema = new Schema<TBooking>(
     user: {
       type: Schema.Types.ObjectId,
       required: [true, "User id is required"],
-     ref: "User",
+      ref: "User",
     },
     phone: {
       type: Number,
@@ -20,19 +20,32 @@ const bookingSchema = new Schema<TBooking>(
       type: String,
       required: true,
     },
-    price : {
-        type : Number,
-        required : true
+    slotId: {
+      type: String,
+      required: true,
     },
-    image : {
-        type : String,
-        required : true
+
+    price: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
     },
     date: {
       type: String,
       required: true,
     },
     time: {
+      type: String,
+      required: true,
+    },
+    startTime: {
+      type: String,
+      required: true,
+    },
+    endTime: {
       type: String,
       required: true,
     },
