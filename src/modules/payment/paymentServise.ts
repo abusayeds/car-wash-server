@@ -4,7 +4,7 @@ import { verifyPayment } from "./payment.utils";
 const confirmationService = async (
   slotId: string,
   transactionId: string,
-  status: string
+  
 ) => {
   const verifyPaymentMethod = await verifyPayment(transactionId);
   let result;

@@ -3,8 +3,9 @@ import { z } from "zod";
 const bookingVAlidationSchema = z.object({
   body: z.object({
     name: z.string(),
-    // user: z.string(),
-    phone: z.number(),
+    service: z.string(),
+    Subservice: z.string(),
+    phone: z.string(),
     email: z.string().email("Invalid email address"),
     price: z.number(),
     image: z.string(),
@@ -14,7 +15,6 @@ const bookingVAlidationSchema = z.object({
     startTime: z.string(),
     endTime: z.string(),
     address: z.string(),
-    city: z.string(),
     vehicleType: z.string(),
     vehicleBrand: z.string(),
   }),

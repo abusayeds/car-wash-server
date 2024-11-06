@@ -12,8 +12,18 @@ const bookingSchema = new Schema<TBooking>(
       required: [true, "User id is required"],
       ref: "User",
     },
+    service: {
+      type: Schema.Types.ObjectId,
+      required: [true, "User id is required"],
+      ref: "Servise",
+    },
+    Subservice: {
+      type: Schema.Types.ObjectId,
+      required: [true, "User id is required"],
+      ref: "subServise",
+    },
     phone: {
-      type: Number,
+      type: String,
       required: true,
     },
     email: {
@@ -49,11 +59,8 @@ const bookingSchema = new Schema<TBooking>(
       type: String,
       required: true,
     },
+
     address: {
-      type: String,
-      required: true,
-    },
-    city: {
       type: String,
       required: true,
     },

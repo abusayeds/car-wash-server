@@ -2,11 +2,10 @@ import { Request, Response } from "express";
 import { paymentSerice } from "./paymentServise";
 
 const confirmationController = async (req: Request, res: Response) => {
-  const { transactionId, status, slotId } = req.query;
+  const { transactionId, slotId } = req.query;
   await paymentSerice.confirmationService(
     slotId as string,
-    transactionId as string,
-    status as string
+    transactionId as string
   );
   res.setHeader("Content-Type", "text/html");
   res.send(`

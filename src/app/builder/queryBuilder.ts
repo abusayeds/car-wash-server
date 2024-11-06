@@ -59,5 +59,3 @@ class queryBuilder<T> {
 }
 
 export default queryBuilder;
-
-

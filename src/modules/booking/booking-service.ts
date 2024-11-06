@@ -13,11 +13,11 @@ const createBookingDB = async (payload: TBooking, id: string) => {
   const paymentData = {
     slotId: payload.slotId,
     transactionId,
-    totalPrice: Number(payload.price),
-    custormerName: payload.name,
-    custormerEmail: payload.email,
-    custormerPhone: payload.phone,
-    custormerAddress: payload.address,
+    totalPrice: Number(payload?.price),
+    custormerName: payload?.name,
+    custormerEmail: payload?.email,
+    custormerPhone: payload?.phone,
+    custormerAddress: payload?.address,
   };
   const paymentSession = await initiatePayment(paymentData);
   return {
@@ -29,12 +29,20 @@ const getAllBookingDB = async () => {
   const result = await bookingModel.find().populate("user");
   return result;
 };
+const deleteBookingDB = async (id: string) => {
+  const result = await bookingModel.findByIdAndDelete(id);
+  return result;
+};
 const getMybookingDB = async (id: string) => {
-  const result = await bookingModel.find({ user: id });
+  const result = await bookingModel
+    .find({ user: id })
+    .populate("Subservice")
+    .populate("service");
   return result;
 };
 export const bookingService = {
   createBookingDB,
   getAllBookingDB,
   getMybookingDB,
+  deleteBookingDB,
 };

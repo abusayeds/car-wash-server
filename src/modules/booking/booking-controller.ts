@@ -5,8 +5,7 @@ import { bookingService } from "./booking-service";
 
 const createbooking = catchAsync(async (req, res) => {
   const result = await bookingService.createBookingDB(req.body, req.user.id);
-
-    sendResponse(res, {
+  sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: " Booking successful",
@@ -22,9 +21,18 @@ const getAllBooking = catchAsync(async (req, res) => {
     data: result,
   });
 });
+const deleteBooking = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await bookingService.deleteBookingDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: " Booking delete successfully",
+    data: result,
+  });
+});
 const getMyBooking = catchAsync(async (req, res) => {
-  const result = await bookingService.getMybookingDB(req.user.id);
-
+  const result = await bookingService.getMybookingDB(req?.user?.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -36,4 +44,5 @@ export const bookingController = {
   createbooking,
   getAllBooking,
   getMyBooking,
+  deleteBooking,
 };

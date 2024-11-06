@@ -5,7 +5,6 @@ import { userController } from "./user-controller";
 import { authValidation } from "../auth/auth-validation";
 import { authController } from "../auth/auth-controller";
 
-
 const router = express.Router();
 router.post(
   "/auth/signup",
@@ -23,6 +22,11 @@ router.put(
   //    auth(USER_ROLE.user) ,
   requestValidation(userValidation.updateUserValidationSchema),
   userController.updateUser
+);
+router.put(
+  "/change-password",
+  requestValidation(userValidation.changePasswordValidationSchema),
+  authController.changePassword
 );
 
 export const userRoutes = router;

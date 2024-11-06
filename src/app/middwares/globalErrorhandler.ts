@@ -16,7 +16,7 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   let errorSources: TErrorSoureces = [
     {
       path: "",
-      message: "something is wrong",
+      message: err.message,
     },
   ];
   if (err instanceof ZodError) {
@@ -55,8 +55,8 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   return res.status(statusCode).json({
     success: false,
     message,
-    errorSources, 
-     stack: config.node_env === "devlopment" ? err?.stack : null,
+    errorSources,
+    stack: config.node_env === "devlopment" ? err?.stack : null,
   });
 };
 export default globalErrorHandler;

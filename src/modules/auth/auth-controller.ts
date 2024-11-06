@@ -15,7 +15,6 @@ const createAuth = catchAsync(async (req, res) => {
     maxAge: 1000 * 60 * 60 * 24 * 365,
   });
 
-  
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -24,6 +23,17 @@ const createAuth = catchAsync(async (req, res) => {
     data: result.user,
   });
 });
+const changePassword = catchAsync(async (req, res) => {
+  const result = await authServise.changePasswordDB(req.body);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: " Password changed successfully ! ",
+    data: result,
+  });
+});
 export const authController = {
   createAuth,
+  changePassword,
 };

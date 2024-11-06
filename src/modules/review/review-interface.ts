@@ -1,6 +1,8 @@
+import { Types } from "mongoose";
+
 export type TReview = {
-    description : string
-    name : string;
-    email : string;
-    rating : number
-}
+  description: string;
+  title: string;
+  user: Types.ObjectId;
+  rating: number;
+};

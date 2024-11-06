@@ -13,15 +13,16 @@ router.post(
   requestValidation(bookingValidation.bookingVAlidationSchema),
   bookingController.createbooking
 );
-router.get(
-  "/bookings",
-  auth(USER_ROLE.admin),
-bookingController.getAllBooking
-);
+router.get("/bookings", auth(USER_ROLE.admin), bookingController.getAllBooking);
 router.get(
   "/my-bookings",
   auth(USER_ROLE.user),
-bookingController.getMyBooking
+  bookingController.getMyBooking
+);
+router.delete(
+  "/delete-booking/:id",
+  auth(USER_ROLE.user),
+  bookingController.deleteBooking
 );
 
 export const bookingRouts = router;

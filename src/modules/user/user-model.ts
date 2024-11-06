@@ -7,30 +7,32 @@ import config from "../../app/config";
 const userSchema = new Schema<TUser, IUserModel>(
   {
     name: {
-        type : String,
-        required : true,
-        unique: true
+      type: String,
+      required: true,
     },
-   
+
     email: {
       type: String,
       required: true,
-      unique: true,
     },
     password: {
       type: String,
       required: true,
-      select:0
+    },
+    profileImage: {
+      type: String,
+    },
+    coverImage: {
+      type: String,
     },
     phone: {
       type: String,
       required: true,
-      unique: true,
     },
     role: {
       type: String,
       enum: ["admin", "user"],
-      default : "user",
+      default: "user",
       required: true,
     },
     address: {
@@ -55,7 +57,7 @@ userSchema.post("save", async function (doc, next) {
   next();
 });
 userSchema.statics.isUserExistsByCustomEmail = async function (email: string) {
-  return await this.findOne({ email }).select('+password');
+  return await this.findOne({ email }).select("+password");
 };
 userSchema.statics.isPasswordMatched = async function name(
   plainTextPassword: string,
